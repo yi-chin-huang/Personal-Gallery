@@ -8,3 +8,6 @@
 1. Register Heroku
 2. Install Django
 3. Create a website on Heroku
+
+# Homework 1
+link: https://prac09142.herokuapp.com
