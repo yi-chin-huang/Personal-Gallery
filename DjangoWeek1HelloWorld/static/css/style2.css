@@ -1,23 +1,117 @@
-@font-face {
+/* @font-face {
   font-family: 'icomoon';
   src: url("../fonts/icomoon/icomoon.eot?srf3rx");
   src: url("../fonts/icomoon/icomoon.eot?srf3rx#iefix") format("embedded-opentype"), url("../fonts/icomoon/icomoon.ttf?srf3rx") format("truetype"), url("../fonts/icomoon/icomoon.woff?srf3rx") format("woff"), url("../fonts/icomoon/icomoon.svg?srf3rx#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
-}
+} */
 /* =======================================================
 *
-* 	Template Style 
-*	Edit this section
+*   Template Style 
+* Edit this section
 *
 * ======================================================= */
+
 body {
-  font-family: "Roboto", Arial, serif;
-  line-height: 1.8;
+  font-family: sans-serif;
   font-size: 20px;
-  background: #f0f0f0;
+  color: #5B5B5B;
   font-weight: 300;
+  line-height: 1.8;
+  text-decoration : none;
+  margin: 8%;
 }
+
+.title p{
+  font-family: Futura;
+  font-size: 40px;
+  text-transform: uppercase;
+  color: #000;
+  font-weight: 300;
+  margin-top: 8%;
+  margin-bottom: 20px;
+  /* line-height: 0.8; */
+
+}
+
+.intro p{
+  font-family: Gill Sans;
+  font-size: 30px;
+  color: #5B5B5B;
+  font-weight: 300;
+  margin-top: 10px;
+  margin-bottom: 50px;
+
+}
+
+.bar ul li{
+  font-family: sans-serif;
+  font-size: 20px;
+  color: #5B5B5B;
+  font-weight: 200;
+  line-height: 1.8;
+  list-style-type: none;
+  display: inline;
+  margin-left: -37px;
+  margin-right: 70px;
+  padding-left: 0; 
+  list-style-position: inside;
+
+
+
+}
+.portfolio-wrapper1 img {
+  margin: 10px;
+  width: 30%;
+  display: inline;
+}
+.portfolio-wrapper2 img {
+  margin:  10px;
+  width: 60%;
+
+  display:inline;
+
+}
+
+
+.contact p {
+  font-family: sans-serif;
+  font-size: 20px;
+  color: #5B5B5B;
+  font-weight: 300;
+  line-height: 1.8;
+
+} 
+
+.contact a:hover {
+    color: seagreen;
+}
+/* unvisited link */
+.contact a:link {
+  text-decoration: none;
+  color: lightseagreen;
+}
+
+/* visited link */
+.contact a:visited {
+  color: lightseagreen;
+}
+
+
+/* selected link */
+.contact a:active {
+    color: blue;
+}
+
+
+@media screen and (max-width: 768px) {
+  .portfolio-wrapper1 img, .portfolio-wrapper2 img {
+    width: 80% !important;
+  }
+
+
+/* 
+
 body.menu-show {
   overflow: hidden;
   position: fixed;
@@ -51,7 +145,7 @@ a:focus, a:active {
 }
 
 p, span {
-  /* margin-bottom: 1.5em; */
+   margin-bottom: 1.5em;
   font-size: 20px;
   color: #727272;
   font-weight: 300;
@@ -429,8 +523,8 @@ header .fh5co-navbar-brand .fh5co-logo:active, header .fh5co-navbar-brand .fh5co
     font-size: 30px;
   }
 }
-
-#filters {
+ */
+/* #filters {
   padding: 0;
   list-style: none;
 }
@@ -452,16 +546,18 @@ header .fh5co-navbar-brand .fh5co-logo:active, header .fh5co-navbar-brand .fh5co
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -o-box-sizing: border-box;
-  /* width: 30%; */
+  width: 30%;
   display: inline-block;
   float: none;
   overflow: hidden;
+  object-fit:fill !important;
+  flex-wrap: wrap !important;
   margin: 10px;
 
 }
-/* #pic2, #pic4 {
+#pic2, #pic4 {
   width: 60% !important;
-} */
+}
 
 @media screen and (max-width: 992px) {
   #portfoliolist .portfolio {
@@ -477,28 +573,25 @@ header .fh5co-navbar-brand .fh5co-logo:active, header .fh5co-navbar-brand .fh5co
   #portfoliolist .portfolio {
     width: 100% !important;
   }
-}
+} */
 
-.portfolio-wrapper {
+/* .portfolio-wrapper {
   overflow: hidden;
   position: relative !important;
   cursor: pointer;
-  width: 30% !important;
-}
+  
+} */
 
-.portfolio-wrapper2 {
-  overflow: hidden;
-  position: relative !important;
-  cursor: pointer;
-  width: 30% !important;
-}
+
+
+
 /* 
 .portfolio {
   overflow: hidden;
   position: relative;
   z-index: 1;
   float: left;
-} */
+}
 
 .portfolio img {
   max-height: 100%;  
@@ -512,7 +605,6 @@ header .fh5co-navbar-brand .fh5co-logo:active, header .fh5co-navbar-brand .fh5co
   transform: scale(1.1);
   -webkit-transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
-  width: 30% !important;
 
 
 }
@@ -733,4 +825,4 @@ input[type="text"] {
   opacity: 0;
 }
 
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=style.css.map */ */

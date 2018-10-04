@@ -6,4 +6,18 @@ from django.contrib.auth.models import User
 
 
 def index(request):
-	return render(request, 'index.html')
+	imagelist = [["cover.png","portfolio-wrapper1"], 
+	["impossible website.png","portfolio-wrapper2"], 
+	["傳單.png","portfolio-wrapper1"], 
+	["prolog.png","portfolio-wrapper2"],
+	["營服白.png","portfolio-wrapper1"],
+	["營服.png","portfolio-wrapper1"],
+	["路跑.png","portfolio-wrapper1"],
+	["chimeiclothes.png","portfolio-wrapper1"],
+	["painting1.jpg","portfolio-wrapper1"],
+	["painting2.jpg","portfolio-wrapper1"],
+	["painting3.jpg","portfolio-wrapper1"],
+	["painting4.jpg","portfolio-wrapper1"],
+	["painting.jpg","portfolio-wrapper1"]]
+
+	return render(request, 'index2.html',locals())
