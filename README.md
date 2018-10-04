@@ -14,7 +14,9 @@
 2. design my website
 
 # week3
-1. use for loop to show images
+1. use for loop to show images(use 'class' to control image size)
+2. create a list in view.py
+
 
 # Homework 1
 link: https://prac09142.herokuapp.com
