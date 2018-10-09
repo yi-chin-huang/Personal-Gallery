@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-
 	{% load  staticfiles %}
 	<head>
 	<meta charset="utf-8">
 
-	<title>Yi Chin's Portfolio</title>
+	<title>Message Board</title>
 
 	<meta name="author" content="Yi Chin Huang" />
 
 
 
-	<link rel="stylesheet" href="{% static 'css/style2.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style_board.css' %}">
 
 	<!-- fontawesome icon -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">	</head>
@@ -21,56 +20,28 @@
 	
 		<header>
 			<div class ="title">
-				<p>Yi Chin's Portfolio</p>
+				<p><a href ="{% url 'home' %}">Yi Chin's Message Board</a></p>
 			</div>
 		</header>
 
 		<div class="intro">
-<!-- 			<div class="container">
-				<div class="row"> -->
-					<!-- <div class="col-md-8 animate-box"> -->
-						<p>My graphic and Web designs.</p>
-					<!-- </div> -->
-<!-- 				</div>
-			</div> -->
+			<p>Leave some messages below.</p>
 		</div>
 	
 	
 		<!-- <div class="portfolio-section"> -->
 		
-			<div class ="bar">
-				<ul>
-					<li><span>All</span></li>
-					<li><span>IMcamp</span></li>
-					<li><span>Website</span></li>
-					<li><span>Logo</span></li>
-					<li><span>Paintng</span></li>
-					<li><span>Others</span></li>
-					<li id = "msgb"><span><a href="{% url 'board' %}">Message Board</a></span></li>
-				</ul>
+			<div class ="box">
+			{% for msg in msgs %}
+                <div class='message'>
+                    <span class="talker">{{msg.talker}}:  </span>
+                    <span class="text">{{msg.message}}</span>
+                </div>
+            {% endfor %}
+				</div>
 			</div>
 
-<!-- IMcamp (app)-->
 
-				<!-- <div id="portfoliolist" class="animate-box"> -->
-					
-				{% for pic in imagelist %}	
-					<!-- <div class="portfolio all web" data-cat="web"> -->
-
-						<span class={{pic.1}}>				
-							<img src= "static/images/{{pic.0}}" alt="" />
-<!-- 							<div class="label">
-								<div class="label-text">
-									<a class="text-title">"1"</a>
-									<span class="text-category">"1"</span>
-								</div>
-								<div class="label-bg"></div>
-							</div> -->
-						</span>	
-
-					<!-- </div> -->
-				{% endfor %}
-		</div>
 
 
 

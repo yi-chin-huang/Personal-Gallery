@@ -22,7 +22,10 @@ body {
 
 }
 
-
+.title a:link, .title a:visited{
+  color: #000;
+  text-decoration: none;
+}
 
 
 
@@ -36,33 +39,32 @@ body {
 
 }
 
-.bar ul li{
+.box {
+  border-style: solid;
+  border-color: lightseagreen;
+  border-radius: 10px;
+/*   height: 400px; */
+  padding-top:1.5em;
+  padding-bottom: 1.5em;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+.text {
+
   font-family: sans-serif;
   font-size: 20px;
   color: #5B5B5B;
-  font-weight: 200;
-  line-height: 1.8;
-  list-style-type: none;
-  display: inline;
-  margin-left: -37px;
-  margin-right: 70px;
-  padding-left: 0; 
-  list-style-position: inside;
+  font-weight: 200; 
 
 }
+.talker{
 
-.bar a:link{
-  color: lightseagreen;
-  text-decoration: none;
-  font-weight: 400;
-}
-
-.bar a:visited{
+  font-family: sans-serif;
+  font-size: 20px;
   color: #5B5B5B;
-  text-decoration: lightseagreen;
-  font-weight: 400;
-}
+  font-weight: 400; 
 
+}
 
 .portfolio-wrapper1 img {
   margin: 10px;

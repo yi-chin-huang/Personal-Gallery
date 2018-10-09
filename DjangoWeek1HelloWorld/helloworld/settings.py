@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'guestbook'
 ]
 
 MIDDLEWARE = [
@@ -74,16 +75,28 @@ WSGI_APPLICATION = 'helloworld.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "djangogirls",
+        "USER": "ctps930080",
+        "PASSWORD": "212",
+        "HOST": "",
+        "PORT": "",
+    }
+}
+
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
-import dj_database_url
-DATABASES = {
-    'default': dj_database_url.config(),
-}
+# import dj_database_url
+# DATABASES = {
+#     'default': dj_database_url.config(),
+# }
 
 
 # Password validation
@@ -132,7 +145,7 @@ else:
 
 
 
-    
+
 STATIC_URL = '/static/'
 django_heroku.settings(locals())
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
