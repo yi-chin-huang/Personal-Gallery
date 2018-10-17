@@ -46,30 +46,20 @@
 					<li><span>Logo</span></li>
 					<li><span>Paintng</span></li>
 					<li><span>Others</span></li>
-					<li id = "msgb"><span><a href="{% url 'board' %}">Message Board</a></span></li>
+					<li class = "msgb"><span><a href="{% url 'board' %}">Chat Room</a></span></li>
+					<li class = "msgb"><span><a href="{% url 'comment' %}">Make Comments</a></span></li>
 				</ul>
 			</div>
 
 <!-- IMcamp (app)-->
 
-				<!-- <div id="portfoliolist" class="animate-box"> -->
-					
-				{% for pic in imagelist %}	
-					<!-- <div class="portfolio all web" data-cat="web"> -->
+		<div>			
+			{% for w in works%}	
+				<span title={{w.name}} class={{w.classname}}>				
+					<img src= "static/images/{{w.img}}" alt="" />
+				</span>	
 
-						<span class={{pic.1}}>				
-							<img src= "static/images/{{pic.0}}" alt="" />
-<!-- 							<div class="label">
-								<div class="label-text">
-									<a class="text-title">"1"</a>
-									<span class="text-category">"1"</span>
-								</div>
-								<div class="label-bg"></div>
-							</div> -->
-						</span>	
-
-					<!-- </div> -->
-				{% endfor %}
+			{% endfor %}
 		</div>
 
 

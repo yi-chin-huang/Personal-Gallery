@@ -23,9 +23,6 @@ body {
 }
 
 
-
-
-
 .intro p{
   font-family: Gill Sans;
   font-size: 30px;
@@ -58,7 +55,7 @@ body {
 }
 
 .bar a:visited{
-  color: #5B5B5B;
+  color: lightseagreen;
   text-decoration: lightseagreen;
   font-weight: 400;
 }
@@ -76,7 +73,9 @@ body {
   display:inline;
 
 }
-
+/* .portfolio-wrapper1: hover{
+  cursor: help;
+  } */
 
 .contact p {
   font-family: sans-serif;
@@ -112,33 +111,3 @@ body {
   .portfolio-wrapper1 img, .portfolio-wrapper2 img {
     width: 80% !important;
   }
-ing: border-box;
-  -o-box-sizing: border-box;
-  width: 30%;
-  display: inline-block;
-  float: none;
-  overflow: hidden;
-  object-fit:fill !important;
-  flex-wrap: wrap !important;
-  margin: 10px;
-
-}
-#pic2, #pic4 {
-  width: 60% !important;
-}
-
-@media screen and (max-width: 992px) {
-  #portfoliolist .portfolio {
-    width: 50% !important;
-  }
-}
-@media screen and (max-width: 768px) {
-  #portfoliolist .portfolio {
-    width: 50% !important;
-  }
-}
-@media screen and (max-width: 480px) {
-  #portfoliolist .portfolio {
-    width: 100% !important;
-  }
-} */

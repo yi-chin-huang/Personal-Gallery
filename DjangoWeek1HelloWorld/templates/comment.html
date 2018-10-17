@@ -3,7 +3,7 @@
 	<head>
 	<meta charset="utf-8">
 
-	<title>Chat Room</title>
+	<title>Comments</title>
 
 	<meta name="author" content="Yi Chin Huang" />
 
@@ -25,7 +25,7 @@
 		</header>
 
 		<div class="intro">
-			<p>Chat room.&nbsp Leave some messages below.</p>
+			<p>Make comments to my works.</p>
 <!-- 			<p>您現在的位置在{{sec}},{{fp}}</p> -->
 		</div>
 	
@@ -33,11 +33,12 @@
 		<!-- <div class="portfolio-section"> -->
 		
 			<div class ="box">
-			{% for msg in msgs %}
+			{% for c in cmts %}
                 <div class='message'>
-                    <span class="talker">{{msg.talker}}: </span>
-                    <span class="text">{{msg.message}}</span>
-                    <span class="time"> {{msg.time}}</span>
+                    <span class="talker">{{c.author}}</span>
+                    <span class="text">'s comment to </span>
+                    <span class="talker">{{c.work.name}}: </span>
+                    <span class="text"> {{c.comment}}</span>
                 </div>
             {% endfor %}
 				</div>
@@ -46,12 +47,27 @@
 		<form class = "send_msg" action="" method="post">
 		<tabel>
 			<td>
-            	<tr><label for="talker">留言者：</label>
-            	<input id="talker" type="text" name="talker"><br></tr>
+				<span>評論作品：</span>
+				<span><select name="choose_work">
+				
+				{% for w in works %}
+					<option value={{w.id}} name = "work">{{w.name}}</option>
+
+				{% endfor %}
+				</select></span><br>
+				<!-- <span> <img src = "static/images/{{w.img}}"/> </span>	 -->
+				<!-- <span> <input class="leave" type="submit" value="preview"> </span> -->
+				
+				
             </td>
+			<td>
+            	<tr><label for="author">留言者：</label>
+            	<input id="talker" type="text" name="author"><br></tr>
+            </td>
+
             <td>
-            	<tr><label for="message">訊息：&nbsp &nbsp</label>                    
-            	<input id="message" type="text" name="message"> </input></tr>
+            	<tr><label for="comment">評論：&nbsp &nbsp</label>                    
+            	<input id = "message" type="text" name="comment"> </input></tr>
             <input class="leave" type="submit" value="留言">
         	</td>
         </table>

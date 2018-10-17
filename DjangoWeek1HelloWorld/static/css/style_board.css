@@ -66,16 +66,39 @@ body {
 
 }
 
-.portfolio-wrapper1 img {
-  margin: 10px;
-  width: 30%;
-  display: inline;
+.time
+{
+  color:  grey;
+  font-size: 17px;
+  font-weight: 200;
+  float: right;
 }
-.portfolio-wrapper2 img {
-  margin:  10px;
-  width: 60%;
 
-  display:inline;
+/* select{
+  background: url('/img/cover.png') !important;
+} */
+
+.send_msg{
+  margin-top: 1em;
+}
+.send_msg #message{
+  width: 50%;
+  height: 3.6em;
+
+}
+.send_msg input{
+
+  height: 1.8em;
+  margin-right: 4%;
+  margin-top: 1em;
+
+}
+.send_msg .leave{
+
+  font-size: 20px;
+
+}
+select{
 
 }
 
@@ -114,33 +137,3 @@ body {
   .portfolio-wrapper1 img, .portfolio-wrapper2 img {
     width: 80% !important;
   }
-ing: border-box;
-  -o-box-sizing: border-box;
-  width: 30%;
-  display: inline-block;
-  float: none;
-  overflow: hidden;
-  object-fit:fill !important;
-  flex-wrap: wrap !important;
-  margin: 10px;
-
-}
-#pic2, #pic4 {
-  width: 60% !important;
-}
-
-@media screen and (max-width: 992px) {
-  #portfoliolist .portfolio {
-    width: 50% !important;
-  }
-}
-@media screen and (max-width: 768px) {
-  #portfoliolist .portfolio {
-    width: 50% !important;
-  }
-}
-@media screen and (max-width: 480px) {
-  #portfoliolist .portfolio {
-    width: 100% !important;
-  }
-} */
