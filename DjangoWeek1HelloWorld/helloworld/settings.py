@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'guestbook'
+    'guestbook',
+    'login'
 ]
 
 MIDDLEWARE = [
@@ -116,7 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+# AUTH_USER_MODEL = 'login.User'
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
@@ -145,7 +146,7 @@ else:
 
 
 
-
+LOGIN_URL = 'login'
 STATIC_URL = '/static/'
 django_heroku.settings(locals())
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]

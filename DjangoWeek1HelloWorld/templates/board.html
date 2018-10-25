@@ -26,11 +26,10 @@
 
 		<div class="intro">
 			<p>Chat room.&nbsp Leave some messages below.</p>
-<!-- 			<p>您現在的位置在{{sec}},{{fp}}</p> -->
 		</div>
-	
-	
-		<!-- <div class="portfolio-section"> -->
+
+	<!-- {% if request.user.is_authenticated %}	 -->
+
 		
 			<div class ="box">
 			{% for msg in msgs %}
@@ -45,10 +44,10 @@
 
 		<form class = "send_msg" action="" method="post">
 		<tabel>
-			<td>
+<!-- 			<td>
             	<tr><label for="talker">留言者：</label>
             	<input id="talker" type="text" name="talker"><br></tr>
-            </td>
+            </td> -->
             <td>
             	<tr><label for="message">訊息：&nbsp &nbsp</label>                    
             	<input id="message" type="text" name="message"> </input></tr>
@@ -57,7 +56,9 @@
         </table>
         </form>
 
-
+<!--     {% else %}
+        <p>您尚未登入!<a href="/login/">登入</a></p>
+    {% endif %} -->
 
 		<footer>
 			<div id="footer">

@@ -133,6 +133,23 @@ select{
 }
 
 
+a:hover {
+    color: seagreen;
+}
+
+a:link {
+  text-decoration: none;
+  color: lightseagreen;
+}
+
+a:visited {
+  color: lightseagreen;
+}
+
+a:active {
+    color: blue;
+}
+
 @media screen and (max-width: 768px) {
   .portfolio-wrapper1 img, .portfolio-wrapper2 img {
     width: 80% !important;

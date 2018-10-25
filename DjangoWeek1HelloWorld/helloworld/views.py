@@ -2,14 +2,16 @@
 from django.shortcuts import render,redirect, render_to_response   # 加入 redirect 套件
 from django.contrib.auth import authenticate
 from django.contrib import auth
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib.auth.models import User
 from guestbook.models import Message, Work, Comment
 import datetime
 from django.utils.timezone import now
 from datetime import datetime
 from pytz import timezone
-
+from django.contrib.auth.decorators import login_required
+ 
+@login_required
 def index(request):
 	# imagelist = [["cover.png","portfolio-wrapper1"], 
 	# ["impossible website.png","portfolio-wrapper2"], 
@@ -30,7 +32,8 @@ def index(request):
 	cmts = Comment.objects.all()
     # return render_to_response('menu.html',locals())
 	return render(request, 'index2.html',locals())
-
+	
+@login_required
 def board(request):
 	# path = request.path 
 	# host=request.get_host()
@@ -50,14 +53,14 @@ def board(request):
 
 
 	if request.POST:
-		talker = request.POST['talker']
+		talker = request.user
 		message = request.POST['message']
 		time = datetime.now()     # 擷取現在時間
 
 		Message.objects.create(talker=talker, message=message, time=time)
 	# return render_to_response('comments.html',locals())
 	return render(request, 'board.html',locals())
-
+@login_required
 def comment(request):
 
 	works = Work.objects.all()

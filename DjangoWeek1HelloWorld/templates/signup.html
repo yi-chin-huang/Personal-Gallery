@@ -1,0 +1,23 @@
+<html>
+    {% load  static %}
+    <link rel="stylesheet" href="{% static 'css/style_login.css' %}">
+    <head>
+        <title> Sign up </title>
+        <meta charset='utf-8'>
+        <div class ="title">
+            <p><a href ="{% url 'home' %}">Yi Chin's Portfolio</a></p>
+        </div>
+    </head>
+    <body>
+        <form action="" method="post">
+            <!-- {% csrf_token %} -->
+            <label for="username">帳號:</label>
+            <input type="text" name="username" value="" id="username"><br>
+            <label for="password">密碼:</label>
+            <input type="password" name="password" value="" id="password"><br>
+            <input type="submit" value="註冊" />
+            
+
+        </form>
+    </body>
+</html>
