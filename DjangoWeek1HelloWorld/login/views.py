@@ -2,6 +2,7 @@ from django.shortcuts import render, render_to_response
 from django.http import HttpResponse,HttpResponseRedirect
 from django import template
 from django.contrib import auth
+from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
 
 def welcome(request):
@@ -26,12 +27,13 @@ def logout(request):
 	auth.logout(request)
 	return HttpResponseRedirect('/welcome/',locals())
 
+
 def signup(request):
 	if request.method == 'POST':
 		username = request.POST.get('username', '')
 		password = request.POST.get('password', '')
 		try:
-			user = User.objects.get(username=name)
+			user = User.objects.get(username=username)
 		except:
 			user = None
 		if user is not None:
