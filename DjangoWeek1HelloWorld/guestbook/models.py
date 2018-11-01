@@ -18,6 +18,7 @@ class Work(models.Model):
 	name = models.CharField(max_length=64)
 	img = models.CharField(max_length=64, default = "cover.png")
 	classname = models.CharField(max_length=64, default = "portfolio-wrapper1")
+	classification = models.CharField(max_length=64, default = "Others")
 
 	def __str__(self):
 		return self.name

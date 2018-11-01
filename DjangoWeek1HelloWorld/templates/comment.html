@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-	{% load  staticfiles %}
+	{% load static %}
 	<head>
 	<meta charset="utf-8">
 
@@ -25,8 +25,14 @@
 		</header>
 
 		<div class="intro">
-			<p>Make comments to my works.</p>
-<!-- 			<p>您現在的位置在{{sec}},{{fp}}</p> -->
+			{% if request.GET %}
+				<p>Make comments on &nbsp "{{work.name}}"</p>
+				<span class = {{work.classname}}>
+					<img src= "../static/images/{{work.img}} " alt="">
+				</span>
+			{% else %}
+				<p>Comments on my works.</p>
+			{% endif %}
 		</div>
 	
 	
@@ -47,23 +53,22 @@
 		<form class = "send_msg" action="" method="post">
 		<tabel>
 			<td>
-				<span>評論作品：</span>
-				<span><select name="choose_work">
-				
-				{% for w in works %}
-					<option value={{w.id}} name = "work">{{w.name}}</option>
+				{% if not request.GET %}
+					<span>評論作品：</span>
+					<span><select name="choose_work">
+					
+					{% for w in works %}
+						<option value={{w.id}} name = "work">{{w.name}}</option>
 
-				{% endfor %}
-				</select></span><br>
-				<!-- <span> <img src = "static/images/{{w.img}}"/> </span>	 -->
-				<!-- <span> <input class="leave" type="submit" value="preview"> </span> -->
-				
+					{% endfor %}
+					</select></span><br>
+				{% endif %}
 				
             </td>
-			<td>
+			<!-- <td>
             	<tr><label for="author">留言者：</label>
             	<input id="talker" type="text" name="author"><br></tr>
-            </td>
+            </td> -->
 
             <td>
             	<tr><label for="comment">評論：&nbsp &nbsp</label>                    

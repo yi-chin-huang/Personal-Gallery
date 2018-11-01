@@ -26,13 +26,50 @@ def index(request):
 	# ["painting3.jpg","portfolio-wrapper1"],
 	# ["painting4.jpg","portfolio-wrapper1"],
 	# ["painting.jpg","portfolio-wrapper1"]]
-	path = request.path 
-	
+	path = request.path
+	worklist = []
+
+	# for i in range(Work.objects.count()+1):
+	# 	worklist.append(Post.objects.filter(id = i))
+	# 	print(worklist[i].name)
+
+	# update db
+	# Work.objects.filter(id = 1).update(classification = "IMcamp")
+	# Work.objects.filter(id = 2).update(classification = "Web")
+	# Work.objects.filter(id = 3).update(classification = "IMcamp")
+	# Work.objects.filter(id = 4).update(classification = "Web")
+	# for i in range(5,7):
+	# 	Work.objects.filter(id = i).update(classification = "IMcmap")
+	# for i in range(7,9):
+	# 	Work.objects.filter(id = i).update(classification = "Logo")
+	# for i in range(9,14):
+	# 	Work.objects.filter(id = i).update(classification = "Paintings")
 	works = Work.objects.all()
-	cmts = Comment.objects.all()
-    # return render_to_response('menu.html',locals())
+	if "group" in request.GET:
+		group_name = request.GET["group"] 
+		if group_name == "All":
+			works = Work.objects.all()
+		else:
+			works = Work.objects.filter(classification = group_name)
+		# elif "web" in request.GET:
+		# 	works = Work.objects.filter(classification = "web")
+		# elif "painting" in request.GET:
+		# 	works = Work.objects.filter(classification = "paintings")
+		# elif "logo" in request.GET:
+		# 	works = Work.objects.filter(classification = "logo")
+		# elif "others" in request.GET:
+		# 	works = Work.objects.filter(classification = "others")
+		# else:
+		# 	works = Work.objects.all()
+	# if "comment_work" in request.GET:
+	# 	work_name = request.GET["comment_work"] 
+	# 	if group_name == "All":
+	# 		works = Work.objects.all()
+	# 	else:
+	# 		works = Work.objects.filter(classification = group_name)
+
 	return render(request, 'index2.html',locals())
-	
+
 @login_required
 def board(request):
 	# path = request.path 
@@ -51,7 +88,6 @@ def board(request):
 	# Message.objects.filter(talker="Golden").delete()
 	msgs = Message.objects.all()
 
-
 	if request.POST:
 		talker = request.user
 		message = request.POST['message']
@@ -66,11 +102,23 @@ def comment(request):
 	works = Work.objects.all()
 	cmts = Comment.objects.all()
 
+	if request.GET: # 某作品的評論頁面
+		work = Work.objects.get(id=request.GET["comment_work"])
+		cmts = Comment.objects.filter(work__in=request.GET["comment_work"]).all()
+
+
 	if request.POST:
-		author = request.POST['author']
-		comment = request.POST['comment']
-		work = request.POST['choose_work']
-		w = Work.objects.get(id=work)
+		if "comment_work" in request.GET: # 某作品的評論頁面
+			author = request.user
+			comment = request.POST['comment']
+			w = Work.objects.get(id=request.GET["comment_work"])
+		else: # 所有作品的評論頁面
+			author = request.user
+			comment = request.POST['comment']
+			work = request.POST['choose_work']
+			w = Work.objects.get(id=work)
+
+		
 
 		Comment.objects.create(author=author, comment=comment,work = w)
 	# return render_to_response('comments.html',locals())

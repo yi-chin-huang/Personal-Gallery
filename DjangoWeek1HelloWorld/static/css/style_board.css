@@ -48,6 +48,7 @@ body {
   padding-bottom: 1.5em;
   padding-left: 2em;
   padding-right: 2em;
+  margin-top: 1.5em;
 }
 .text {
 
@@ -74,9 +75,20 @@ body {
   float: right;
 }
 
-/* select{
-  background: url('/img/cover.png') !important;
-} */
+
+
+.portfolio-wrapper1 img{
+  margin: 10px;
+  width: 30% !important;
+  display: inline;
+}
+.portfolio-wrapper2 img{
+  margin:  10px;
+  width: 60%;
+
+  display:inline;
+
+}
 
 .send_msg{
   margin-top: 1em;
@@ -98,10 +110,6 @@ body {
   font-size: 20px;
 
 }
-select{
-
-}
-
 
 .contact p {
   font-family: sans-serif;
