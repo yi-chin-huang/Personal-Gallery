@@ -34,17 +34,18 @@ def index(request):
 	# 	print(worklist[i].name)
 
 	# update db
-	# Work.objects.filter(id = 1).update(classification = "IMcamp")
-	# Work.objects.filter(id = 2).update(classification = "Web")
-	# Work.objects.filter(id = 3).update(classification = "IMcamp")
-	# Work.objects.filter(id = 4).update(classification = "Web")
-	# for i in range(5,7):
-	# 	Work.objects.filter(id = i).update(classification = "IMcmap")
-	# for i in range(7,9):
-	# 	Work.objects.filter(id = i).update(classification = "Logo")
-	# for i in range(9,14):
-	# 	Work.objects.filter(id = i).update(classification = "Paintings")
+	Work.objects.filter(id = 1).update(classification = "IMcamp")
+	Work.objects.filter(id = 2).update(classification = "Web")
+	Work.objects.filter(id = 3).update(classification = "IMcamp")
+	Work.objects.filter(id = 4).update(classification = "Web")
+	for i in range(5,7):
+		Work.objects.filter(id = i).update(classification = "IMcmap")
+	for i in range(7,9):
+		Work.objects.filter(id = i).update(classification = "Logo")
+	for i in range(9,14):
+		Work.objects.filter(id = i).update(classification = "Paintings")
 	works = Work.objects.all()
+	
 	if "group" in request.GET:
 		group_name = request.GET["group"] 
 		if group_name == "All":
