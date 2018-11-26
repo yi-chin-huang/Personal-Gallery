@@ -12,21 +12,8 @@ from pytz import timezone
 from django.contrib.auth.decorators import login_required
 import urllib
  
-# @login_required
+@login_required
 def index(request):
-	# imagelist = [["cover.png","portfolio-wrapper1"], 
-	# ["impossible website.png","portfolio-wrapper2"], 
-	# ["傳單.png","portfolio-wrapper1"], 
-	# ["prolog.png","portfolio-wrapper2"],
-	# ["營服白.png","portfolio-wrapper1"],
-	# ["營服.png","portfolio-wrapper1"],
-	# ["路跑.png","portfolio-wrapper1"],
-	# ["chimeiclothes.png","portfolio-wrapper1"],
-	# ["painting1.jpg","portfolio-wrapper1"],
-	# ["painting2.jpg","portfolio-wrapper1"],
-	# ["painting3.jpg","portfolio-wrapper1"],
-	# ["painting4.jpg","portfolio-wrapper1"],
-	# ["painting.jpg","portfolio-wrapper1"]]
 	path = request.path
 	worklist = []
 
@@ -56,7 +43,7 @@ def index(request):
 
 	return render(request, 'index2.html',locals())
 
-# @login_required
+@login_required
 def board(request):
 
 	msgs = Message.objects.all().order_by('id')
@@ -80,7 +67,7 @@ def board(request):
 	if "edit" in request.POST:
 		mid = request.POST['edit_msgid']
 		return redirect('edit', mid = mid)
-		
+
 	if "searchmsg" in request.POST:
 		search_content = request.POST['search_content']
 		msgs = Message.objects.filter(message__contains = search_content)
@@ -91,7 +78,7 @@ def board(request):
 
 	return render(request, 'board.html',locals())
 
-# @login_required
+@login_required
 def comment(request):
 
 	works = Work.objects.all()
@@ -119,7 +106,7 @@ def comment(request):
 	# return render_to_response('comments.html',locals())
 	return render(request, 'comment.html',locals())
 
-
+@login_required
 def edit(request,mid):
 	if "edit_msg" in request.POST:
 		new_msg = request.POST['edit_content']
