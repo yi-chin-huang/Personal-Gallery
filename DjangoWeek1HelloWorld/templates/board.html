@@ -25,40 +25,66 @@
 		</header>
 
 		<div class="intro">
-			<p>Chat room.&nbsp Leave some messages below.</p>
+			<p>Hello, {{request.user}}.&nbsp Leave some messages below.</p>
 		</div>
 
-	<!-- {% if request.user.is_authenticated %}	 -->
 
 		
 			<div class ="box">
 			{% for msg in msgs %}
                 <div class='message'>
+
                     <span class="talker">{{msg.talker}}: </span>
                     <span class="text">{{msg.message}}</span>
-                    <span class="time"> {{msg.time}}</span>
-                </div>
+
+                    <span class="time">                     	
+                    	<span>
+                    		{{msg.time}}
+						</span>						
+                    </span>
+
+                    {% if request.user.username == msg.talker %} 
+
+                    	<span>
+		                	<form action="" method="post" class = "del_edit">
+		                		<input type="hidden" name = "msgid" value="{{msg.id}}" />
+		                   		<input class = "edit_del" type="submit" name = "delmsg" value="刪除"/> &nbsp
+		                   	</form>
+                   		</span> 
+
+                   		<span>
+				 			<form action="" method="post" class = "del_edit">
+				 				<input type="hidden" name = "edit_msgid" value="{{msg.id}}">
+								<input class = "edit_del" type="submit" name = "edit" value="編輯"> 
+							</form>
+						</span>
+
+                   	{% endif %}
+                 </div>  
+
+
             {% endfor %}
 				</div>
 			</div>
 
 		<form class = "send_msg" action="" method="post">
 		<tabel>
-<!-- 			<td>
-            	<tr><label for="talker">留言者：</label>
-            	<input id="talker" type="text" name="talker"><br></tr>
-            </td> -->
             <td>
             	<tr><label for="message">訊息：&nbsp &nbsp</label>                    
-            	<input id="message" type="text" name="message"> </input></tr>
-            <input class="leave" type="submit" value="留言">
+            	<input id="message" type="text" name="message"></tr>
+            	<input class="leave" name = "sendmsg" type="submit" value="留言">
+        	</td>
+			<br>
+        	<td>
+            	<tr><label for="search">尋找：&nbsp &nbsp</label>                    
+            	<input id="search" type="text" name="search_content"></tr>
+            	<input class="leave" name = "searchmsg" type="submit" value="確認">
+            	<input class="leave" name = "finish_search" type="submit" value="結束搜尋">
         	</td>
         </table>
-        </form>
 
-<!--     {% else %}
-        <p>您尚未登入!<a href="/login/">登入</a></p>
-    {% endif %} -->
+
+        </form>
 
 		<footer>
 			<div id="footer">

@@ -42,21 +42,6 @@
 			<p>功能提示：點選下列選單可以顯示出屬於該類別的作品，點擊圖片右下方的數字，可以對該作品做評論喔！</p>
     	</div>
 
-	
-		
-<!-- 			<div class ="bar">
-				<ul>
-					<li><span>All</span></li>
-					<li><span>IMcamp</span></li>
-					<li><span>Website</span></li>
-					<li><span>Logo</span></li>
-					<li><span>Paintng</span></li>
-					<li><span>Others</span></li>
-					<li class = "msgb"><span><a href="{% url 'board' %}">Chat Room</a></span></li>
-					<li class = "msgb"><span><a href="{% url 'comment' %}">Make Comments</a></span></li>
-					<li class = "msgb"><span><a href="{% url 'welcome' %}">Login</a></span></li>
-				</ul>
-			</div> -->
 		
 			<div class ="bar">
 				<form action="" method="get">
@@ -81,11 +66,6 @@
 				<span title={{w.name}} class={{w.classname}}>				
 					<img src= "static/images/{{w.img}}" alt="">
 					<input type="submit"  value={{w.id}} name="comment_work">
-
-					<!-- <input type="image"  value={{w.img}}  src= "static/images/{{w.img}}" name="comment_work" alt="Submit" style="background: url({{w.img}})"> -->
-
-					<!-- <button type="submit" name="comment_work" value={{w.id}}><img src= "static/images/{{w.img}}" alt="" ></button> -->
-
 				</span>	
 			{% endfor %}
 			</form>

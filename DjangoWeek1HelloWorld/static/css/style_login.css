@@ -33,8 +33,23 @@ body {
 
 }
 
-.login{
+.loginbtn{
+  font-family: sans-serif;
+  font-size: 20px;
+  color: lightseagreen;
+  background: none;
+  font-weight: 200;
+  line-height: 1.8;
+  border: none;
+  cursor: pointer; 
+  margin-top: 1em;
+  margin-left: 0;
 
+}
+
+.input{
+/*   margin-top: -2px; */
+  height: 2.2em;
 }
 
 .contact p {
@@ -62,6 +77,6 @@ a:visited {
 }
 
 a:active {
-    color: blue;
+    color: lightsalmon;
 }
 

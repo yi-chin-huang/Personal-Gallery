@@ -73,8 +73,15 @@ body {
   font-size: 17px;
   font-weight: 200;
   float: right;
+  /* display: inline; */
 }
 
+.del_edit
+{
+  float: right;
+  display: inline;
+  margin-top: -4px;
+}
 
 
 .portfolio-wrapper1 img{
@@ -101,15 +108,30 @@ body {
 .send_msg input{
 
   height: 1.8em;
-  margin-right: 4%;
+  margin-right: 1%;
   margin-top: 1em;
 
 }
 .send_msg .leave{
 
-  font-size: 20px;
+  font-size: 22px;
 
 }
+
+
+.edit_del{
+  font-family: sans-serif;
+  font-size: 16px;
+  color: lightseagreen;
+  background: none;
+  font-weight: 200;
+  line-height: 1.8;
+  border: none;
+  display: inline;
+  cursor: pointer; 
+
+}
+
 
 .contact p {
   font-family: sans-serif;
@@ -137,7 +159,7 @@ body {
 
 /* selected link */
 .contact a:active {
-    color: blue;
+    color: lightsalmon;
 }
 
 
@@ -155,7 +177,7 @@ a:visited {
 }
 
 a:active {
-    color: blue;
+    color: lightsalmon;
 }
 
 @media screen and (max-width: 768px) {

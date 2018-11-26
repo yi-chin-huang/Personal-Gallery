@@ -24,7 +24,9 @@ urlpatterns = [
     path('', views.index,name='home'),
     path('board/', views.board,name='board'),
 	path('comment/', views.comment,name='comment'),
-	# path('login/', include('login.urls')), # new
+    path('edit/', views.edit ,name='edit'),
+    url(r'^edit/(?P<mid>\w+?)/$', views.edit, name = 'edit'),
+
     url(r'^login/$',login,name='login'),
     url(r'^logout/$',logout,name='logout'),
     url(r'^welcome/$',welcome,name='welcome'),

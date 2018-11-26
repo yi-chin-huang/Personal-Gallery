@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+    {% load static %}
+    <head>
+    <meta charset="utf-8">
+
+    <title>Edit Message</title>
+
+    <meta name="author" content="Yi Chin Huang" />
+
+    <link rel="stylesheet" href="{% static 'css/style_board.css' %}">
+
+    <!-- fontawesome icon -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">  </head>
+    <body>
+
+    
+    <div class="page">
+    
+        <header>
+            <div class ="title">
+                <p><a href ="{% url 'home' %}">Yi Chin's Portfolio</a></p>
+            </div>
+        </header>
+
+        <div class="intro">
+                <p>Type in your modified message.</p>            
+        </div>
+    
+
+        <form class = "send_msg" action="" method="post">
+            <label for="message">編輯留言：&nbsp &nbsp</label>                    
+                <input id="message" type="text" name="edit_content"></tr>
+                <input class="leave" type="submit" name = "edit_msg" value="確認">
+        </form>
+        <br><br>
+
+
+        <footer>
+            <div id="footer">
+                        <div class="contact">
+                            <p>Contact me:</p>
+                                <i class="fab fa-facebook-square"></i> &nbsp <a href="https://www.facebook.com/yichin0226">黃意芹</a><br>
+                                <i class="fab fa-instagram"></i> &nbsp <a href="https://www.instagram.com/celery_26/">celery_26</a><br>
+                                <i class="far fa-envelope"></i> &nbsp <a href="b05705001@ntu.edu.tw">b05705001@ntu.edu.tw</a> 
+                        </div>
+
+
+            </div>
+        </footer>
+            
+
+
+
+    </div>
+
+
+    </body>
+</html>

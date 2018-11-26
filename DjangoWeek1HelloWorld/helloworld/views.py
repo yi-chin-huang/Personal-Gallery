@@ -10,8 +10,9 @@ from django.utils.timezone import now
 from datetime import datetime
 from pytz import timezone
 from django.contrib.auth.decorators import login_required
+import urllib
  
-@login_required
+# @login_required
 def index(request):
 	# imagelist = [["cover.png","portfolio-wrapper1"], 
 	# ["impossible website.png","portfolio-wrapper2"], 
@@ -34,70 +35,63 @@ def index(request):
 	# 	print(worklist[i].name)
 
 	# update db
-	Work.objects.filter(id = 1).update(classification = "IMcamp")
-	Work.objects.filter(id = 2).update(classification = "Web")
-	Work.objects.filter(id = 3).update(classification = "IMcamp")
-	Work.objects.filter(id = 4).update(classification = "Web")
-	for i in range(5,7):
-		Work.objects.filter(id = i).update(classification = "IMcmap")
-	for i in range(7,9):
-		Work.objects.filter(id = i).update(classification = "Logo")
-	for i in range(9,14):
-		Work.objects.filter(id = i).update(classification = "Paintings")
-	works = Work.objects.all()
+	# Work.objects.filter(id = 1).update(classification = "IMcamp")
+	# Work.objects.filter(id = 2).update(classification = "Web")
+	# Work.objects.filter(id = 3).update(classification = "IMcamp")
+	# Work.objects.filter(id = 4).update(classification = "Web")
+	# for i in range(5,7):
+	# 	Work.objects.filter(id = i).update(classification = "IMcmap")
+	# for i in range(7,9):
+	# 	Work.objects.filter(id = i).update(classification = "Logo")
+	# for i in range(9,14):
+	# 	Work.objects.filter(id = i).update(classification = "Paintings")
+	works = Work.objects.all().order_by('id')
 	
 	if "group" in request.GET:
 		group_name = request.GET["group"] 
 		if group_name == "All":
-			works = Work.objects.all()
+			works = Work.objects.all().order_by('id')
 		else:
-			works = Work.objects.filter(classification = group_name)
-		# elif "web" in request.GET:
-		# 	works = Work.objects.filter(classification = "web")
-		# elif "painting" in request.GET:
-		# 	works = Work.objects.filter(classification = "paintings")
-		# elif "logo" in request.GET:
-		# 	works = Work.objects.filter(classification = "logo")
-		# elif "others" in request.GET:
-		# 	works = Work.objects.filter(classification = "others")
-		# else:
-		# 	works = Work.objects.all()
-	# if "comment_work" in request.GET:
-	# 	work_name = request.GET["comment_work"] 
-	# 	if group_name == "All":
-	# 		works = Work.objects.all()
-	# 	else:
-	# 		works = Work.objects.filter(classification = group_name)
+			works = Work.objects.filter(classification = group_name).order_by('id')
 
 	return render(request, 'index2.html',locals())
 
-@login_required
+# @login_required
 def board(request):
-	# path = request.path 
-	# host=request.get_host()
-	# fp=request.get_full_path()
-	# sec = request.is_secure()
 
-
-	# t1 = Message.objects.create(talker='Yi Chin', message='Hello, Doggo!' )
-	# t2 = Message.objects.create(talker='Golden', message='Woof!' )
-	# t3 = Message.objects.create(talker='Shiba', message='Woof Woof!')
-
+	msgs = Message.objects.all().order_by('id')
 	
-	# Message.objects.filter(talker="Shiba").delete()
-	# Message.objects.filter(talker="Yi Chin").delete()
-	# Message.objects.filter(talker="Golden").delete()
-	msgs = Message.objects.all()
+	# for m in msgs:
+	# 	m.time =  m.time.strftime("%Y-%m-%d %H:%M:%S")
 
-	if request.POST:
+	if "sendmsg" in request.POST:
 		talker = request.user
 		message = request.POST['message']
 		time = datetime.now()     # 擷取現在時間
 
 		Message.objects.create(talker=talker, message=message, time=time)
-	# return render_to_response('comments.html',locals())
+		return render(request, 'board.html',locals())
+
+	if "delmsg" in request.POST:
+		mid = request.POST['msgid']
+		Message.objects.filter(id = mid).delete()
+		return render(request, 'board.html',locals())
+
+	if "edit" in request.POST:
+		mid = request.POST['edit_msgid']
+		return redirect('edit', mid = mid)
+		
+	if "searchmsg" in request.POST:
+		search_content = request.POST['search_content']
+		msgs = Message.objects.filter(message__contains = search_content)
+	
+	if "finish_search" in request.POST:
+		msgs = Message.objects.all().order_by('id')
+
+
 	return render(request, 'board.html',locals())
-@login_required
+
+# @login_required
 def comment(request):
 
 	works = Work.objects.all()
@@ -121,6 +115,15 @@ def comment(request):
 
 		
 
-		Comment.objects.create(author=author, comment=comment,work = w)
+		Comment.objects.create(author = author, comment = comment, work = w)
 	# return render_to_response('comments.html',locals())
 	return render(request, 'comment.html',locals())
+
+
+def edit(request,mid):
+	if "edit_msg" in request.POST:
+		new_msg = request.POST['edit_content']
+		Message.objects.filter(id = mid).update(message = new_msg)
+		return HttpResponseRedirect('/board/',locals())
+	return render(request, 'edit.html', locals())
+
