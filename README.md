@@ -1,22 +1,29 @@
-
-# Introduce myself
-
-我是資管三的黃意芹，興趣是看狗狗
-![alt text](https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12232719/Golden-Retriever-On-White-05.jpg)
+# This is my personal gallery website created by Django
 
 # week1
-1. Register Heroku
-2. Install Django
-3. Create a website on Heroku
+* Register Heroku
+* Install Django
+* Create a website on Heroku
 
 # week2
-1. learn html, css
-2. design my website
+* learn html, css
+* design my website
 
 # week3
-1. use for loop to show images(use 'class' to control image size)
-2. create a list in view.py
+* use for loop to show images(use 'class' to control image size)
+* create a list in view.py
 
+# Week4
+* Django Form + Models
+* Access the database
 
-# Homework 1
-link: https://prac09142.herokuapp.com
+# Week 5
+* Form, Request, URL, GET + POST
+
+# Week 6
+* User sign up/login/logout and authentication
+
+# Week 7
+* CRUD functions in database
+
+Deployed link: https://prac09142.herokuapp.com
